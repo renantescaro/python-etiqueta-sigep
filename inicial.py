@@ -1,5 +1,7 @@
 from pystrich.datamatrix import DataMatrixEncoder
 from pystrich.code128 import Code128Encoder
+import os
+import pdfkit
 
 # CEP destino -------------------------- 8
 # Complemento do CEP ------------------- 5
@@ -30,3 +32,10 @@ cod_rastreio.save( 'cod_rastreio.png' )
 # cep de destino
 cep_destino = Code128Encoder('12221150')
 cep_destino.save( 'cep_destino.png' )
+
+
+# converte html em pdf
+pdfkit.from_file('etiqueta.html','etiqueta.pdf')
+
+# imprime etiqueta
+os.startfile('etiqueta.pdf', 'print')
